@@ -1,29 +1,48 @@
-🔐 Password Manager (Console App)
+# 🔐 Password Manager (Console App)
 
-A simple console-based password manager written in C# (.NET) as part of my learning journey in C# fundamentals.
+A simple console-based password manager written in **C# (.NET)** as part of my learning journey in C# fundamentals.
 
-⚠️ Educational project only. This app uses a basic substitution cipher to "encrypt" passwords, which is not secure. Do not use it to store real passwords.
+> ⚠️ **Educational project only.**
+> This app uses a basic substitution cipher to "encrypt" passwords, which is **not secure**.
+> Do **not** use it to store real passwords.
 
-✨ Features
-Master password protection (set on first run, required on every launch)
-List all saved passwords
-Add a new password or change an existing one
-Get the password of a specific app/website
-Delete a saved password
-Data is saved to a local text file and reloaded on the next run
-🚀 Getting Started
-Requirements
-.NET SDK
-Run
-bash
+---
+
+## ✨ Features
+
+- Master password protection (set on first run, required on every launch)
+- List all saved passwords
+- Add a new password or change an existing one
+- Get the password of a specific app/website
+- Delete a saved password
+- Data is saved to a local text file and reloaded on the next run
+
+---
+
+## 🚀 Getting Started
+
+### Requirements
+
+- [.NET SDK](https://dotnet.microsoft.com/download)
+
+### Run
+
+```bash
 git clone https://github.com/TarekMahmoudSayed/Password-Manager---C-.git
 cd Password-Manager---C-
 dotnet run
-First run
-The app asks you to create a Master Key password.
-From the next launch, you must enter it to access the menu.
-📋 Menu
-text
+```
+
+### First run
+
+1. The app asks you to create a **Master Key password**.
+2. From the next launch, you must enter it to access the menu.
+
+---
+
+## 📋 Menu
+
+```text
 =================================
         Password Manager
 =================================
@@ -33,38 +52,12 @@ text
     [4] Delete Password.
     Any other choice to exit.
 ---------------------------------
-⚙️ How It Works
-Entries are kept in memory in a Dictionary<string, string> (app name → password).
-On every change, the data is written to Passwords.txt next to the executable, one entry per line:
-text
-  AppName=EncryptedPassword
-EncryptionUtility maps each letter and digit to another one using a fixed substitution table. Any other character (symbols, spaces) is left unchanged.
-📁 Project Structure
-text
-PasswordManager/
-├── App.cs                 # Menu, login, and file load/save logic
-└── EncryptionUtility.cs   # Simple substitution-cipher Encrypt/Decrypt
-📚 Concepts Practiced
-Dictionary<TKey, TValue>
-File I/O (File.ReadAllText, File.WriteAllText, Path.Combine)
-StringBuilder
-switch statements and menu loops
-static classes and members
-out parameters and int.TryParse
-Separation of concerns (UI/logic vs. encryption helper)
-⚠️ Known Limitations
-The substitution cipher is trivial to break.
-The master password is stored in the same file as the other entries, using the same weak cipher.
-Passwords are displayed in plain text on screen.
-Any menu input other than 1–4 exits the app.
-Only letters and digits are substituted; symbols are stored as-is.
-🛠️ Ideas for Improvement
- Replace the cipher with AES encryption (System.Security.Cryptography.Aes)
- Store a salted hash of the master password (e.g. PBKDF2)
- Hide password input while typing
- Add an explicit Exit option
- Split storage logic into a separate PasswordStore class
- Add a random password generator
-📄 License
+```
 
-This project is for learning purposes. Feel free to use it as a reference.
+---
+
+## ⚙️ How It Works
+
+- Entries are kept in memory in a `Dictionary<string, string>` (app name → password).
+- On every change, the data is written to `Passwords.txt` next to the executable, one entry per line: `AppName=EncryptedPassword`
+- `EncryptionUtility` maps each letter and digit to another one using a fixed substitution table. Any other character (symbols, spaces) is
